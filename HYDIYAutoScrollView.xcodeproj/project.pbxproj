@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7070B0441CE3435000403825 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B0431CE3435000403825 /* main.m */; };
 		7070B0471CE3435000403825 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B0461CE3435000403825 /* AppDelegate.m */; };
-		7070B04A1CE3435000403825 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B0491CE3435000403825 /* ViewController.m */; };
 		7070B04D1CE3435000403825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7070B04B1CE3435000403825 /* Main.storyboard */; };
 		7070B04F1CE3435000403825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7070B04E1CE3435000403825 /* Assets.xcassets */; };
 		7070B0521CE3435000403825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7070B0501CE3435000403825 /* LaunchScreen.storyboard */; };
+		70D089D91CE60CBA00E235E9 /* HYDIYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D089D81CE60CBA00E235E9 /* HYDIYScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +20,12 @@
 		7070B0431CE3435000403825 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7070B0451CE3435000403825 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7070B0461CE3435000403825 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7070B0481CE3435000403825 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7070B0491CE3435000403825 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7070B04C1CE3435000403825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7070B04E1CE3435000403825 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7070B0511CE3435000403825 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7070B0531CE3435000403825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70D089D71CE60CBA00E235E9 /* HYDIYScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYDIYScrollView.h; sourceTree = "<group>"; };
+		70D089D81CE60CBA00E235E9 /* HYDIYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYDIYScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			children = (
 				7070B0451CE3435000403825 /* AppDelegate.h */,
 				7070B0461CE3435000403825 /* AppDelegate.m */,
-				7070B0481CE3435000403825 /* ViewController.h */,
-				7070B0491CE3435000403825 /* ViewController.m */,
+				70D089D71CE60CBA00E235E9 /* HYDIYScrollView.h */,
+				70D089D81CE60CBA00E235E9 /* HYDIYScrollView.m */,
 				7070B04B1CE3435000403825 /* Main.storyboard */,
 				7070B04E1CE3435000403825 /* Assets.xcassets */,
 				7070B0501CE3435000403825 /* LaunchScreen.storyboard */,
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7070B04A1CE3435000403825 /* ViewController.m in Sources */,
+				70D089D91CE60CBA00E235E9 /* HYDIYScrollView.m in Sources */,
 				7070B0471CE3435000403825 /* AppDelegate.m in Sources */,
 				7070B0441CE3435000403825 /* main.m in Sources */,
 			);
@@ -302,6 +302,7 @@
 				7070B0581CE3435000403825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
