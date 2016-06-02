@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700959881CE6212B007A94BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700959871CE6212B007A94BA /* ViewController.m */; };
+		7009598C1CE62405007A94BA /* 150831_(1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 700959891CE62405007A94BA /* 150831_(1).jpg */; };
+		7009598D1CE62405007A94BA /* 150831_(2).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7009598A1CE62405007A94BA /* 150831_(2).jpg */; };
+		7009598E1CE62405007A94BA /* 150831_(4).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7009598B1CE62405007A94BA /* 150831_(4).jpg */; };
 		7070B0441CE3435000403825 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B0431CE3435000403825 /* main.m */; };
 		7070B0471CE3435000403825 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B0461CE3435000403825 /* AppDelegate.m */; };
 		7070B04D1CE3435000403825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7070B04B1CE3435000403825 /* Main.storyboard */; };
@@ -16,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		700959861CE6212B007A94BA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		700959871CE6212B007A94BA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		700959891CE62405007A94BA /* 150831_(1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "150831_(1).jpg"; sourceTree = "<group>"; };
+		7009598A1CE62405007A94BA /* 150831_(2).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "150831_(2).jpg"; sourceTree = "<group>"; };
+		7009598B1CE62405007A94BA /* 150831_(4).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "150831_(4).jpg"; sourceTree = "<group>"; };
 		7070B03F1CE3435000403825 /* HYDIYAutoScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HYDIYAutoScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7070B0431CE3435000403825 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7070B0451CE3435000403825 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +69,8 @@
 			children = (
 				7070B0451CE3435000403825 /* AppDelegate.h */,
 				7070B0461CE3435000403825 /* AppDelegate.m */,
+				700959861CE6212B007A94BA /* ViewController.h */,
+				700959871CE6212B007A94BA /* ViewController.m */,
 				70D089D71CE60CBA00E235E9 /* HYDIYScrollView.h */,
 				70D089D81CE60CBA00E235E9 /* HYDIYScrollView.m */,
 				7070B04B1CE3435000403825 /* Main.storyboard */,
@@ -74,6 +85,9 @@
 		7070B0421CE3435000403825 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				700959891CE62405007A94BA /* 150831_(1).jpg */,
+				7009598A1CE62405007A94BA /* 150831_(2).jpg */,
+				7009598B1CE62405007A94BA /* 150831_(4).jpg */,
 				7070B0431CE3435000403825 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -136,8 +150,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7009598C1CE62405007A94BA /* 150831_(1).jpg in Resources */,
 				7070B0521CE3435000403825 /* LaunchScreen.storyboard in Resources */,
 				7070B04F1CE3435000403825 /* Assets.xcassets in Resources */,
+				7009598E1CE62405007A94BA /* 150831_(4).jpg in Resources */,
+				7009598D1CE62405007A94BA /* 150831_(2).jpg in Resources */,
 				7070B04D1CE3435000403825 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +168,7 @@
 			files = (
 				70D089D91CE60CBA00E235E9 /* HYDIYScrollView.m in Sources */,
 				7070B0471CE3435000403825 /* AppDelegate.m in Sources */,
+				700959881CE6212B007A94BA /* ViewController.m in Sources */,
 				7070B0441CE3435000403825 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

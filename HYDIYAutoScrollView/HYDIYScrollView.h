@@ -51,7 +51,7 @@ typedef NS_ENUM(NSUInteger, HYScrollOrientation) {
 @property(copy,nonatomic)NSArray *titlesArray;
 
 /**
- *  轮播图的图片设置（数组内部为UIImage）
+ *  轮播图的图片设置（数组内部为UIImage类型）
  */
 @property(copy,nonatomic)NSArray *imgArray;
 
