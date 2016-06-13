@@ -11,7 +11,9 @@
 #import "HYDIYScrollView.h"
 
 @interface ViewController ()<HYDIYScrollViewDelegate>
-
+{
+    HYDIYScrollView *HYView;
+}
 @property(nonatomic,strong)UIScrollView *scrollView;
 
 @end
@@ -28,8 +30,10 @@
 
     
     NSArray *imgArray = @[img1,img2,img3];
+    
     NSArray *titlesArray = @[@"fasf",@"fafa",@"fasf"];
-    HYDIYScrollView *HYView = [[HYDIYScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) numberOfScrollViews:3 Orientation:HYDIYScrollViewHorizontal imageArray:imgArray titlesArray:titlesArray];
+    
+    HYView = [[HYDIYScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) numberOfScrollViews:3 Orientation:HYDIYScrollViewHorizontal imageArray:imgArray titlesArray:titlesArray withAutoTime:2.0];
     
     [self.view addSubview:HYView];
     

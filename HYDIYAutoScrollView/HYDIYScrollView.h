@@ -29,6 +29,7 @@ typedef void(^HYActionBlock)(NSInteger index);
 
 @optional
 
+- (void)autoScrollViewMode:(NSTimer *)timer;
 
 
 @end
@@ -58,6 +59,9 @@ typedef void(^HYActionBlock)(NSInteger index);
  */
 @property(copy,nonatomic)NSArray *imgArray;
 
+@property(nonatomic,assign)CGRect viewFrame;
+
+
 
 /**
  *  轮播图的个数(轮播图个数以此参数为首要参照，如果此值未被设置，则以imgArray的个数为主，再次则以titlesArray的个数为主)
@@ -70,8 +74,10 @@ typedef void(^HYActionBlock)(NSInteger index);
 @property(assign,nonatomic)NSUInteger oritentionType;
 
 
-
-@property(weak,nonatomic)id HYDIYScrollViewDelegate;
+/**
+ *  协议方法
+ */
+@property(weak,nonatomic)id <HYDIYScrollViewDelegate> delegate;
 
 
 /**
@@ -82,7 +88,7 @@ typedef void(^HYActionBlock)(NSInteger index);
  *
  *  @return HYDIYScrollView
  */
-- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray;
+- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray withAutoTime:(NSTimeInterval)time;
 
 /**
  *  系统初始化方法

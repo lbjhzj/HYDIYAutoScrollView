@@ -12,6 +12,8 @@
 
 @property(nonatomic,strong)UIScrollView *scrollView;
 
+@property(nonatomic,strong)NSTimer* myTimer;
+
 @end
 
 static  NSUInteger const imgTag = 5646465;
@@ -19,9 +21,11 @@ static  NSUInteger const imgTag = 5646465;
 @implementation HYDIYScrollView
 
 
-- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray{
+- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray withAutoTime:(NSTimeInterval)time
+{
     
-    if (!number && !imgArray.count && !titlesArray.count) {
+    if (!number && !imgArray.count && !titlesArray.count)
+    {
         return nil;
     }
     
@@ -35,9 +39,41 @@ static  NSUInteger const imgTag = 5646465;
     
     self.imgArray = imgArray;
     
-    self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
+    self.waitTime = time;
     
-    self.scrollView.contentSize = CGSizeMake(imgArray.count * frame.size.width, frame.size.height);
+    self.viewFrame = frame;
+    
+    
+    [self initScrollView];
+    
+    [self initTitleLabels];
+    
+    _myTimer = [NSTimer scheduledTimerWithTimeInterval:_waitTime target:self selector:@selector(autoScroll:) userInfo:nil repeats:YES];
+
+    return self;
+}
+
+- (void)initTitleLabels
+{
+    for (int i=0; i<_titlesArray.count; i++)
+    {
+        UILabel *lbTitle = [[UILabel alloc] initWithFrame:CGRectMake(_viewFrame.origin.x + i*_viewFrame.size.width, _viewFrame.size.height-40, _viewFrame.size.width, 40)];
+        lbTitle.backgroundColor = [UIColor darkGrayColor];
+        lbTitle.alpha = .5;
+        lbTitle.textAlignment = NSTextAlignmentCenter;
+        lbTitle.text = _titlesArray[i];
+        [_scrollView addSubview:lbTitle];
+    }
+
+    
+}
+
+- (void)initScrollView
+{
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:_viewFrame];
+    
+    self.scrollView.contentSize = CGSizeMake(_imgArray.count * _viewFrame.size.width, _viewFrame.size.height);
     
     self.scrollView.backgroundColor = [UIColor grayColor];
     
@@ -45,44 +81,63 @@ static  NSUInteger const imgTag = 5646465;
     
     self.scrollView.pagingEnabled = YES;
     
-    if (type==HYDIYScrollViewVertical)
+    if (_oritentionType == HYDIYScrollViewVertical)
     {
         _scrollView.alwaysBounceVertical = YES;
     }
-    else if(type == HYDIYScrollViewHorizontal)
+    else if(_oritentionType == HYDIYScrollViewHorizontal)
     {
         _scrollView.alwaysBounceHorizontal = YES;
     }
     
-    for (int i=0; i<imgArray.count; i++)
+    for (int i=0; i<_imgArray.count; i++)
     {
-        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, frame.size.height)];
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(i * _viewFrame.size.width, 0, _viewFrame.size.width, _viewFrame.size.height)];
         img.tag = imgTag + i;
         
         img.userInteractionEnabled = YES;
+        
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+        
         [img addGestureRecognizer:gesture];
-        img.image = imgArray[i];
+        
+        img.image = _imgArray[i];
+        
         [self.scrollView addSubview:img];
     }
-    
     _scrollView.directionalLockEnabled = YES;
     
     _scrollView.delegate = self;
     
-     [self addSubview:self.scrollView];
-    
-
-    return self;
+    [self addSubview:self.scrollView];
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)sender{
+- (void)autoScroll:(id)sender
+{
+    NSInteger currentIndex = _scrollView.contentOffset.x/self.frame.size.width;
+    NSInteger nextIndex = currentIndex + 1;
+    if (_imgArray.count == nextIndex)
+    {
+        nextIndex = 0;
+    }
+    [self.scrollView setContentOffset:CGPointMake(self.frame.size.width * nextIndex, 0) animated:YES];
+    
+}
+
+- (void)dealloc{
+    [_myTimer invalidate];
+}
+
+
+- (void)tapAction:(UITapGestureRecognizer *)sender
+{
     NSLog(@"%lu",sender.view.tag - imgTag);
     
 }
 
 
-- (instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         
