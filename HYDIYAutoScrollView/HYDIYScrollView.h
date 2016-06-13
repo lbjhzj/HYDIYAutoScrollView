@@ -11,16 +11,19 @@
 /**
  *  ScrollView的滑动方向
  */
-typedef NS_ENUM(NSUInteger, HYScrollOrientation) {
+typedef NS_OPTIONS(NSUInteger, HYScrollOrientation) {
     /**
      *  竖直滑动
      */
-    HYDIYScrollViewVertical = 0,
+    HYDIYScrollViewVertical     =1 << 0,
     /**
      *  水平滑动
      */
-    HYDIYScrollViewHorizontal
+    HYDIYScrollViewHorizontal   =1 << 1,
 };
+
+
+typedef void(^HYActionBlock)(NSInteger index);
 
 @protocol HYDIYScrollViewDelegate <NSObject>
 
@@ -79,7 +82,7 @@ typedef NS_ENUM(NSUInteger, HYScrollOrientation) {
  *
  *  @return HYDIYScrollView
  */
-- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(NSUInteger)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray;
+- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray;
 
 /**
  *  系统初始化方法

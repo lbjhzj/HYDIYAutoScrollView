@@ -10,8 +10,9 @@
 
 #import "HYDIYScrollView.h"
 
-@interface ViewController ()
+@interface ViewController ()<HYDIYScrollViewDelegate>
 
+@property(nonatomic,strong)UIScrollView *scrollView;
 
 @end
 
@@ -20,18 +21,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIImageView *img1 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
-    img1.image = [UIImage imageNamed:@"150831_(1)"];
-    UIImageView *img2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
-    img1.image = [UIImage imageNamed:@"150831_(1)"];
-    UIImageView *img3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
-    img1.image = [UIImage imageNamed:@"150831_(1)"];
+    UIImage *img1 = [UIImage imageNamed:@"150831_(1).jpg"];
+    UIImage *img2 = [UIImage imageNamed:@"150831_(1).jpg"];
+
+    UIImage *img3 = [UIImage imageNamed:@"150831_(1).jpg"];
+
     
     NSArray *imgArray = @[img1,img2,img3];
     NSArray *titlesArray = @[@"fasf",@"fafa",@"fasf"];
-    HYDIYScrollView *HYView = [[HYDIYScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) numberOfScrollViews:5 Orientation:0 imageArray:imgArray titlesArray:titlesArray];
+    HYDIYScrollView *HYView = [[HYDIYScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) numberOfScrollViews:3 Orientation:HYDIYScrollViewHorizontal imageArray:imgArray titlesArray:titlesArray];
     
     [self.view addSubview:HYView];
+    
 
 }
 

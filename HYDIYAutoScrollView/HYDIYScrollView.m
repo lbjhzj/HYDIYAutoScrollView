@@ -14,16 +14,18 @@
 
 @end
 
+static  NSUInteger const imgTag = 5646465;
+
 @implementation HYDIYScrollView
 
 
-- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(NSUInteger)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray{
+- (HYDIYScrollView *)initWithFrame:(CGRect)frame numberOfScrollViews:(NSInteger)number Orientation:(HYScrollOrientation)type imageArray:(NSArray *)imgArray titlesArray:(NSArray *)titlesArray{
     
     if (!number && !imgArray.count && !titlesArray.count) {
         return nil;
     }
     
-    HYDIYScrollView *hYDIYScrollView = [[HYDIYScrollView alloc] initWithFrame:frame];
+    self = [self initWithFrame:frame];
     
     self.numberOfScrollViews = number;
     
@@ -33,23 +35,35 @@
     
     self.imgArray = imgArray;
     
-    for (UIImageView *img in imgArray) {
-        
-        [self.scrollView addSubview:img];
-        [self addSubview:img];
-    }
     self.scrollView = [[UIScrollView alloc] initWithFrame:frame];
     
-    self.scrollView.contentSize = CGSizeMake(frame.size.width*number, frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(imgArray.count * frame.size.width, frame.size.height);
     
     self.scrollView.backgroundColor = [UIColor grayColor];
     
-    _scrollView.bounces = YES;
+    self.scrollView.bounces = YES;
     
-    if (type==HYDIYScrollViewVertical) {
+    self.scrollView.pagingEnabled = YES;
+    
+    if (type==HYDIYScrollViewVertical)
+    {
         _scrollView.alwaysBounceVertical = YES;
-    }else{
+    }
+    else if(type == HYDIYScrollViewHorizontal)
+    {
         _scrollView.alwaysBounceHorizontal = YES;
+    }
+    
+    for (int i=0; i<imgArray.count; i++)
+    {
+        UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, frame.size.height)];
+        img.tag = imgTag + i;
+        
+        img.userInteractionEnabled = YES;
+        UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapAction:)];
+        [img addGestureRecognizer:gesture];
+        img.image = imgArray[i];
+        [self.scrollView addSubview:img];
     }
     
     _scrollView.directionalLockEnabled = YES;
@@ -57,21 +71,26 @@
     _scrollView.delegate = self;
     
      [self addSubview:self.scrollView];
-    return hYDIYScrollView;
+    
+
+    return self;
 }
+
+- (void)tapAction:(UITapGestureRecognizer *)sender{
+    NSLog(@"%lu",sender.view.tag - imgTag);
+    
+}
+
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-
+        
         self.backgroundColor = [UIColor redColor];
         
         self.frame = frame;
-        
-       
     }
     return self;
-    
 }
 
 @end
